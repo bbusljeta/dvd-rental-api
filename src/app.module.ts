@@ -6,6 +6,8 @@ import { CategoryModule } from './category/category.module';
 import { FilmModule } from './film/film.module';
 import { LanguageModule } from './language/language.module';
 import { FilmCategoryModule } from './film-category/film-category.module';
+import { ActorModule } from './actor/actor.module';
+import { FilmActorModule } from './film-actor/film-actor.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { FilmCategoryModule } from './film-category/film-category.module';
     FilmModule,
     LanguageModule,
     FilmCategoryModule,
+    ActorModule,
+    FilmActorModule,
   ],
   controllers: [AppController],
   providers: [AppService],

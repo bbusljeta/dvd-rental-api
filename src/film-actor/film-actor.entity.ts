@@ -4,17 +4,22 @@ import {
   Model,
   ForeignKey,
   DataType,
+  UpdatedAt,
 } from 'sequelize-typescript';
-import { Category } from 'src/category/category.entity';
+import { Actor } from 'src/actor/actor.entity';
 import { Film } from 'src/film/film.entity';
 
-@Table({ tableName: 'film_category' })
-export class FilmCategory extends Model {
+@Table({ tableName: 'film_actor' })
+export class FilmActor extends Model {
   @ForeignKey(() => Film)
   @Column(DataType.INTEGER)
   film_id: number;
 
-  @ForeignKey(() => Category)
+  @ForeignKey(() => Actor)
   @Column(DataType.INTEGER)
-  category_id: number;
+  actor_id: number;
+
+  @Column
+  @UpdatedAt
+  last_update: Date;
 }

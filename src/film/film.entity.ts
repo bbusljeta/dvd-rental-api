@@ -10,7 +10,9 @@ import {
   ForeignKey,
   BelongsToMany,
 } from 'sequelize-typescript';
+import { Actor } from 'src/actor/actor.entity';
 import { Category } from 'src/category/category.entity';
+import { FilmActor } from 'src/film-actor/film-actor.entity';
 import { FilmCategory } from 'src/film-category/filmCategory.entity';
 import { Language } from 'src/language/language.entity';
 
@@ -23,6 +25,9 @@ export class Film extends Model {
 
   @BelongsToMany(() => Category, () => FilmCategory)
   categories: Category[];
+
+  @BelongsToMany(() => Actor, () => FilmActor)
+  actors: Actor[];
 
   @Column(DataTypes.CHAR(255))
   title: string;
