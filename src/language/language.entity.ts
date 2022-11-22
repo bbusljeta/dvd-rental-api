@@ -5,6 +5,7 @@ import {
   PrimaryKey,
   AutoIncrement,
   UpdatedAt,
+  DataType,
 } from 'sequelize-typescript';
 
 @Table({ tableName: 'language' })
@@ -12,9 +13,9 @@ export class Language extends Model {
   @Column
   @PrimaryKey
   @AutoIncrement
-  category_id: number;
+  language_id: number;
 
-  @Column
+  @Column(DataType.CHAR(20))
   name: string;
 
   @Column

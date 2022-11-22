@@ -1,3 +1,4 @@
+import { DataTypes } from 'sequelize';
 import {
   Table,
   Column,
@@ -5,7 +6,10 @@ import {
   PrimaryKey,
   AutoIncrement,
   UpdatedAt,
+  BelongsToMany,
 } from 'sequelize-typescript';
+import { FilmCategory } from 'src/film-category/filmCategory.entity';
+import { Film } from 'src/film/film.entity';
 
 @Table({ tableName: 'category' })
 export class Category extends Model {
@@ -14,7 +18,10 @@ export class Category extends Model {
   @AutoIncrement
   category_id: number;
 
-  @Column
+  @BelongsToMany(() => Film, () => FilmCategory)
+  movies: Film[];
+
+  @Column(DataTypes.CHAR(25))
   name: string;
 
   @Column

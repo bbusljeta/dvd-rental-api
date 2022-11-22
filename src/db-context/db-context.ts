@@ -1,5 +1,5 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Sequelize } from 'sequelize';
+import { Sequelize } from 'sequelize-typescript';
 import { DbContextEnv } from './interfaces/db-context.env';
 
 export enum Provider {
@@ -18,6 +18,13 @@ export const databaseProviders = [
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
+        models: [__dirname + '/models/**/*.entity.ts'],
+        modelMatch: (filename, member) => {
+          return (
+            filename.substring(0, filename.indexOf('.entity')) ===
+            member.toLowerCase()
+          );
+        },
       });
 
       //await sequelize.sync({ force: false });

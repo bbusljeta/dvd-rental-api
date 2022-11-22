@@ -8,7 +8,10 @@ import {
   UpdatedAt,
   Length,
   ForeignKey,
+  BelongsToMany,
 } from 'sequelize-typescript';
+import { Category } from 'src/category/category.entity';
+import { FilmCategory } from 'src/film-category/filmCategory.entity';
 import { Language } from 'src/language/language.entity';
 
 @Table({ tableName: 'film' })
@@ -17,6 +20,9 @@ export class Film extends Model {
   @PrimaryKey
   @AutoIncrement
   film_id: number;
+
+  @BelongsToMany(() => Category, () => FilmCategory)
+  categories: Category[];
 
   @Column(DataTypes.CHAR(255))
   title: string;

@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { CategoryModule } from './category/category.module';
 import { FilmModule } from './film/film.module';
 import { LanguageModule } from './language/language.module';
+import { FilmCategoryModule } from './film-category/film-category.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { LanguageModule } from './language/language.module';
     CategoryModule,
     FilmModule,
     LanguageModule,
+    FilmCategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
