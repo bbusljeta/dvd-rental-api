@@ -11,6 +11,7 @@ import { FilmActorModule } from './film-actor/film-actor.module';
 import { CustomerModule } from './customer/customer.module';
 import { AddressModule } from './address/address.module';
 import { CityModule } from './city/city.module';
+import { CountryModule } from './country/country.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { CityModule } from './city/city.module';
     CustomerModule,
     AddressModule,
     CityModule,
+    CountryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

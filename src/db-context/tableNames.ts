@@ -8,4 +8,5 @@ export const tableNames = {
   actor: 'actor',
   address: 'address',
   city: 'city',
+  country: 'country',
 };
