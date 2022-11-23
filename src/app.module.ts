@@ -10,6 +10,7 @@ import { ActorModule } from './actor/actor.module';
 import { FilmActorModule } from './film-actor/film-actor.module';
 import { CustomerModule } from './customer/customer.module';
 import { AddressModule } from './address/address.module';
+import { CityModule } from './city/city.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { AddressModule } from './address/address.module';
     FilmActorModule,
     CustomerModule,
     AddressModule,
+    CityModule,
   ],
   controllers: [AppController],
   providers: [AppService],

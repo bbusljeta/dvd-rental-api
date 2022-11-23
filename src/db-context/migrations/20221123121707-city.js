@@ -1,5 +1,6 @@
 'use strict';
 const { tableNames } = require("../tableNames")
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -10,48 +11,35 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-    await queryInterface.createTable(tableNames.address, {
-      address_id: {
-        field: "address_id",
+    await queryInterface.createTable(tableNames.city, {
+      city_id: {
+        field: "city_id",
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
       },
-      address: {
-        field: "address",
+      city: {
+        field: "city",
         type: Sequelize.CHAR(50),
+        allowNull: false
       },
-      address2: {
-        field: "address2",
-        type: Sequelize.CHAR(50),
-        allowNull: false,
-      },
-      district: {
-        field: "district",
-        type: Sequelize.CHAR(20)
-      },
-      postal_code: {
-        field: "postal_code",
-        type: Sequelize.CHAR(10)
-      },
-      phone: {
-        field: "phone",
-        type: Sequelize.CHAR(20)
-      },
-      city_id: {
-        field: "city_id",
+      country_id: {
+        field: "country_id",
         type: Sequelize.INTEGER,
         references: {
-          key: 'city_id',
+          key: 'country_id',
           model: {
-            tableName: 'city',
+            tableName: 'country',
           },
         },
-      }
-    })
-
-
+      },
+      last_update: {
+        field: 'last_update',
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
+      },
+    });
   },
 
   async down(queryInterface, Sequelize) {
@@ -62,6 +50,6 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
 
-    await queryInterface.dropTable(tableNames.address)
+    await queryInterface.dropTable(tableNames.city);
   }
 };

@@ -7,4 +7,5 @@ export const tableNames = {
   category: 'category',
   actor: 'actor',
   address: 'address',
+  city: 'city',
 };

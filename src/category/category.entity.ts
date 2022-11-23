@@ -9,7 +9,7 @@ import {
   BelongsToMany,
 } from 'sequelize-typescript';
 import { tableNames } from 'src/db-context/tableNames';
-import { FilmCategory } from 'src/film-category/filmCategory.entity';
+import { FilmCategory } from 'src/film-category/film-category.entity';
 import { Film } from 'src/film/film.entity';
 
 @Table({ tableName: tableNames.category })
