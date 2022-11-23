@@ -1,4 +1,5 @@
 'use strict';
+const { tableNames } = require("../tableNames")
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-    await queryInterface.createTable('language', {
+    await queryInterface.createTable(tableNames.language, {
       language_id: {
         field: "language_id",
         type: Sequelize.INTEGER,
@@ -40,6 +41,6 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
 
-    await queryInterface.dropTable('language')
+    await queryInterface.dropTable(tableNames.language)
   }
 };

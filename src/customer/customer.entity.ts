@@ -6,27 +6,38 @@ import {
   PrimaryKey,
   AutoIncrement,
   UpdatedAt,
-  BelongsToMany,
+  CreatedAt,
 } from 'sequelize-typescript';
 import { tableNames } from 'src/db-context/tableNames';
-import { FilmActor } from 'src/film-actor/film-actor.entity';
-import { Film } from 'src/film/film.entity';
 
-@Table({ tableName: tableNames.actor })
-export class Actor extends Model {
+@Table({ tableName: tableNames.customer })
+export class Customer extends Model {
   @Column
   @PrimaryKey
   @AutoIncrement
-  actor_id: number;
-
-  @BelongsToMany(() => Film, () => FilmActor)
-  movies: Film[];
+  customer_id: number;
 
   @Column(DataTypes.CHAR(45))
   first_name: string;
 
   @Column(DataTypes.CHAR(45))
   last_name: string;
+
+  @Column(DataTypes.CHAR(45))
+  email: string;
+
+  @Column(DataTypes.INTEGER)
+  address_id: number;
+
+  @Column(DataTypes.BOOLEAN)
+  activebool: boolean;
+
+  @Column(DataTypes.NUMBER({ length: 4 }))
+  active: number;
+
+  @Column
+  @CreatedAt
+  create_date: Date;
 
   @Column
   @UpdatedAt

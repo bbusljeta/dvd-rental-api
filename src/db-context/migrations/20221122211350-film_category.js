@@ -1,4 +1,5 @@
 'use strict';
+const { tableNames } = require("../tableNames")
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-    await queryInterface.createTable('film_category', {
+    await queryInterface.createTable(tableNames.filmCategory, {
       film_id: {
         field: "film_id",
         type: Sequelize.INTEGER,
@@ -46,6 +47,6 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
 
-    await queryInterface.dropTable('film_category')
+    await queryInterface.dropTable(tableNames.filmCategory)
   }
 };

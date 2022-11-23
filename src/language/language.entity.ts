@@ -7,8 +7,9 @@ import {
   UpdatedAt,
   DataType,
 } from 'sequelize-typescript';
+import { tableNames } from 'src/db-context/tableNames';
 
-@Table({ tableName: 'language' })
+@Table({ tableName: tableNames.language })
 export class Language extends Model {
   @Column
   @PrimaryKey

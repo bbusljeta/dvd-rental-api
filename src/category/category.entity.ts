@@ -8,10 +8,11 @@ import {
   UpdatedAt,
   BelongsToMany,
 } from 'sequelize-typescript';
+import { tableNames } from 'src/db-context/tableNames';
 import { FilmCategory } from 'src/film-category/filmCategory.entity';
 import { Film } from 'src/film/film.entity';
 
-@Table({ tableName: 'category' })
+@Table({ tableName: tableNames.category })
 export class Category extends Model {
   @Column
   @PrimaryKey
