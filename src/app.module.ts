@@ -9,6 +9,7 @@ import { FilmCategoryModule } from './film-category/film-category.module';
 import { ActorModule } from './actor/actor.module';
 import { FilmActorModule } from './film-actor/film-actor.module';
 import { CustomerModule } from './customer/customer.module';
+import { AddressModule } from './address/address.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CustomerModule } from './customer/customer.module';
     ActorModule,
     FilmActorModule,
     CustomerModule,
+    AddressModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -6,4 +6,5 @@ export const tableNames = {
   language: 'language',
   category: 'category',
   actor: 'actor',
+  address: 'address',
 };
