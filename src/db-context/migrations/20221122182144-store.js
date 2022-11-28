@@ -4,41 +4,45 @@ const tableNames = require("../tableNames");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable(tableNames.filmCategory, {
-      film_id: {
-        field: "film_id",
+    await queryInterface.createTable(tableNames.store, {
+      store_id: {
+        field: "store_id",
         type: Sequelize.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true,
+      },
+      manager_staff_id: {
+        field: "manager_staff_id",
+        type: Sequelize.INTEGER,
         references: {
-          key: 'film_id',
+          key: 'staff_id',
           model: {
-            tableName: 'film',
+            tableName: 'staff',
           },
         },
       },
-      category_id: {
-        field: "category_id",
+      address_id: {
+        field: "address_id",
         type: Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey: true,
         references: {
-          key: 'category_id',
+          key: "address_id",
           model: {
-            tableName: 'category',
-          },
-        },
+            tableName: "address"
+          }
+        }
       },
       last_update: {
         field: 'last_update',
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        allowNull: false
       },
     })
+
+    await queryInterface.addIndex(tableNames.store, ["manager_staff_id"]);
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable(tableNames.filmCategory);
+    await queryInterface.dropTable(tableNames.store);
   }
 };

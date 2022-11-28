@@ -1,15 +1,9 @@
 'use strict';
-const { tableNames } = require("../tableNames")
+const tableNames = require("../tableNames");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
     await queryInterface.createTable(tableNames.actor, {
       actor_id: {
         field: "actor_id",
@@ -35,16 +29,11 @@ module.exports = {
       },
 
     })
+
+    await queryInterface.addIndex(tableNames.actor, ["last_name"]);
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
-
     await queryInterface.dropTable(tableNames.actor)
   }
 };

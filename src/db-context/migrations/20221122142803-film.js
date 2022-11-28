@@ -1,15 +1,9 @@
 'use strict';
-const { tableNames } = require("../tableNames")
+const tableNames = require("../tableNames");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
     await queryInterface.createTable(tableNames.film, {
       film_id: {
         field: "film_id",
@@ -33,7 +27,7 @@ module.exports = {
         validate: {
           max: 2155,
           min: 1901,
-        }
+        },
       },
       language_id: {
         field: 'language_id',
@@ -48,50 +42,53 @@ module.exports = {
       },
       rental_duration: {
         field: "rental_duration",
-        type: Sequelize.TINYINT({ unsigned: true }),
-        allowNull: false
+        type: Sequelize.SMALLINT({ unsigned: true }),
+        allowNull: false,
+        defaultValue: 3
       },
       rental_rate: {
         field: "rental_rate",
         type: Sequelize.DECIMAL(4, 2),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 4.99
       },
       length: {
         field: "length",
-        type: Sequelize.TINYINT({ unsigned: true }),
+        type: Sequelize.SMALLINT({ unsigned: true }),
       },
       replacement_cost: {
         field: "replacement_cost",
         type: Sequelize.DECIMAL(5, 2),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 19.99
       },
       rating: {
         field: "rating",
-        type: Sequelize.ENUM('G', 'PG', 'PG-13', 'R', 'NC-17')
+        type: Sequelize.ENUM('G', 'PG', 'PG-13', 'R', 'NC-17'),
+        defaultValue: "G"
       },
       last_update: {
         field: 'last_update',
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
+        allowNull: false
       },
       special_features: {
         field: "special_features",
-        type: Sequelize.TEXT
+        type: Sequelize.ARRAY(Sequelize.TEXT)
       },
       fulltext: {
         field: "fulltext",
-        type: Sequelize.TSVECTOR
+        type: Sequelize.TSVECTOR,
+        allowNull: false
       }
     })
+
+    await queryInterface.addIndex(tableNames.film, ["fulltext", "language_id", "title"]);
+
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
     await queryInterface.dropTable(tableNames.film);
   }
 };

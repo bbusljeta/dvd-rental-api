@@ -47,14 +47,13 @@ export class Film extends Model {
   @Column
   language_id: number;
 
-  @Column(DataTypes.TINYINT({ unsigned: true }))
+  @Column(DataTypes.SMALLINT({ unsigned: true }))
   rental_duration: number;
 
   @Column(DataTypes.DECIMAL(4, 2))
   rental_rate: number;
 
-  // 0 - 255
-  @Column(DataTypes.TINYINT({ unsigned: true }))
+  @Column(DataTypes.SMALLINT({ unsigned: true }))
   length: number;
 
   @Column(DataTypes.DECIMAL(5, 2))

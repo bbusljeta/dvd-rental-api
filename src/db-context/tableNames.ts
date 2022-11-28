@@ -9,4 +9,9 @@ export const tableNames = {
   address: 'address',
   city: 'city',
   country: 'country',
+  store: `store`,
+  payment: `payment`,
+  rental: `rental`,
+  staff: `staff`,
+  inventory: 'inventory',
 };

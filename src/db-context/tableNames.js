@@ -1,0 +1,17 @@
+module.exports = {
+    customer: 'customer',
+    film: 'film',
+    filmActor: 'film-actor',
+    filmCategory: 'film-category',
+    language: 'language',
+    category: 'category',
+    actor: 'actor',
+    address: 'address',
+    city: 'city',
+    country: 'country',
+    store: `store`,
+    payment: `payment`,
+    rental: `rental`,
+    staff: `staff`,
+    inventory: 'inventory',
+}

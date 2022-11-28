@@ -1,25 +1,11 @@
 version: '3.9'
 name: dvd-rental.dev
 services:
-  api:
-    container_name: dvd-rental.dev.api
-    build:
-      dockerfile: ./docker/Dockerfile.development
-    volumes:
-      - .:/app
-    command: ['yarn', 'start:debug']
-    depends_on: [database]
-    restart: unless-stopped
-    env_file:
-      - .env.local
-    ports:
-      - 3000:3000
-      - 9229:9229
   database:
     container_name: dvd-rental.dev.database
     image: postgres:14.4-alpine
     restart: unless-stopped
     env_file:
-      - .env.local
+      - .env
     ports:
       - 5432:5432

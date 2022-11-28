@@ -4,7 +4,8 @@ const tableNames = require("../tableNames");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable(tableNames.filmCategory, {
+
+    await queryInterface.createTable(tableNames.filmActor, {
       film_id: {
         field: "film_id",
         type: Sequelize.INTEGER,
@@ -17,15 +18,15 @@ module.exports = {
           },
         },
       },
-      category_id: {
-        field: "category_id",
+      actor_id: {
+        field: "actor_id",
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
         references: {
-          key: 'category_id',
+          key: 'actor_id',
           model: {
-            tableName: 'category',
+            tableName: 'actor',
           },
         },
       },
@@ -36,9 +37,12 @@ module.exports = {
         allowNull: false
       },
     })
+
+    await queryInterface.addIndex(tableNames.filmActor, ["film_id"]);
+
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable(tableNames.filmCategory);
+    await queryInterface.dropTable(tableNames.filmActor)
   }
 };

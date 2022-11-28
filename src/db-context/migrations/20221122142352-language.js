@@ -1,15 +1,9 @@
 'use strict';
-const { tableNames } = require("../tableNames")
+const tableNames = require("../tableNames");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
 
     await queryInterface.createTable(tableNames.language, {
       language_id: {
@@ -27,6 +21,7 @@ module.exports = {
       last_update: {
         field: 'last_update',
         type: Sequelize.DATE,
+        allowNull: false,
         defaultValue: Sequelize.NOW,
       },
 
@@ -34,13 +29,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
-
     await queryInterface.dropTable(tableNames.language)
   }
 };
