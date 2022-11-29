@@ -20,7 +20,6 @@ module.exports = {
       address2: {
         field: "address2",
         type: Sequelize.CHAR(50),
-        allowNull: false,
       },
       district: {
         field: "district",
@@ -43,7 +42,13 @@ module.exports = {
             tableName: 'city',
           },
         },
-      }
+      },
+      last_update: {
+        field: 'last_update',
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+      },
     })
 
     await queryInterface.addIndex(tableNames.address, ["city_id"]);

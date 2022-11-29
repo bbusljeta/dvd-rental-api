@@ -43,7 +43,6 @@ module.exports = {
       return_date: {
         field: "return_date",
         type: Sequelize.DATE,
-        allowNull: false
       },
       staff_id: {
         field: "staff_id",

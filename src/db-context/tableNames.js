@@ -1,8 +1,8 @@
 module.exports = {
     customer: 'customer',
     film: 'film',
-    filmActor: 'film-actor',
-    filmCategory: 'film-category',
+    filmActor: 'film_actor',
+    filmCategory: 'film_category',
     language: 'language',
     category: 'category',
     actor: 'actor',
