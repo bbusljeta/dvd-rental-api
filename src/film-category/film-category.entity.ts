@@ -6,7 +6,7 @@ import {
   DataType,
 } from 'sequelize-typescript';
 import { Category } from 'src/category/category.entity';
-import { tableNames } from 'src/db-context/tableNames';
+import tableNames from 'src/db-context/tableNames';
 import { Film } from 'src/film/film.entity';
 
 @Table({ tableName: tableNames.filmCategory })

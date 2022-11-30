@@ -8,7 +8,7 @@ import {
   UpdatedAt,
   BelongsToMany,
 } from 'sequelize-typescript';
-import { tableNames } from 'src/db-context/tableNames';
+import tableNames from 'src/db-context/tableNames';
 import { FilmActor } from 'src/film-actor/film-actor.entity';
 import { Film } from 'src/film/film.entity';
 

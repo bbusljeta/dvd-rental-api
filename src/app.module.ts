@@ -12,6 +12,11 @@ import { CustomerModule } from './customer/customer.module';
 import { AddressModule } from './address/address.module';
 import { CityModule } from './city/city.module';
 import { CountryModule } from './country/country.module';
+import { StaffModule } from './staff/staff.module';
+import { StoreModule } from './store/store.module';
+import { InventoryModule } from './inventory/inventory.module';
+import { RentalModule } from './rental/rental.module';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -28,6 +33,11 @@ import { CountryModule } from './country/country.module';
     AddressModule,
     CityModule,
     CountryModule,
+    StaffModule,
+    StoreModule,
+    InventoryModule,
+    RentalModule,
+    PaymentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

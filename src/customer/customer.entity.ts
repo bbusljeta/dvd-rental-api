@@ -8,7 +8,7 @@ import {
   UpdatedAt,
   CreatedAt,
 } from 'sequelize-typescript';
-import { tableNames } from 'src/db-context/tableNames';
+import tableNames from 'src/db-context/tableNames';
 
 @Table({ tableName: tableNames.customer })
 export class Customer extends Model {

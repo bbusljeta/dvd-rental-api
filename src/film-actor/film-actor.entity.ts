@@ -7,7 +7,7 @@ import {
   UpdatedAt,
 } from 'sequelize-typescript';
 import { Actor } from 'src/actor/actor.entity';
-import { tableNames } from 'src/db-context/tableNames';
+import tableNames from 'src/db-context/tableNames';
 import { Film } from 'src/film/film.entity';
 
 @Table({ tableName: tableNames.filmActor })
