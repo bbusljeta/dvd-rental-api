@@ -9,6 +9,7 @@ import {
   Length,
   ForeignKey,
   BelongsToMany,
+  HasMany,
 } from 'sequelize-typescript';
 import { Actor } from 'src/actor/actor.entity';
 import { Category } from 'src/category/category.entity';

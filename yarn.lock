@@ -3717,6 +3717,11 @@ mkdirp@^0.5.4:
   dependencies:
     minimist "^1.2.6"
 
+mkdirp@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
+  integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
 moment-timezone@^0.5.34:
   version "0.5.39"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.39.tgz#342625a3b98810f04c8f4ea917e448d3525e600b"
@@ -4011,6 +4016,13 @@ pg-connection-string@^2.5.0:
   resolved "https://registry.yarnpkg.com/pg-connection-string/-/pg-connection-string-2.5.0.tgz#538cadd0f7e603fc09a12590f3b8a452c2c0cf34"
   integrity sha512-r5o/V/ORTA6TmUnyWZR9nCj1klXCO2CEKNRlVuJptZe85QuhFayC7WeMic7ndayT5IRIR0S0xFxFi2ousartlQ==
 
+pg-hstore@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/pg-hstore/-/pg-hstore-2.3.4.tgz#4425e3e2a3e15d2a334c35581186c27cf2e9b8dd"
+  integrity sha512-N3SGs/Rf+xA1M2/n0JBiXFDVMzdekwLZLAO0g7mpDY9ouX+fDI7jS6kTq3JujmYbtNSJ53TJ0q4G98KVZSM4EA==
+  dependencies:
+    underscore "^1.13.1"
+
 pg-int8@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/pg-int8/-/pg-int8-1.0.1.tgz#943bd463bf5b71b4170115f80f8efc9a0c0eb78c"
@@ -4277,6 +4289,11 @@ require-from-string@^2.0.2:
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
 
+reserved-words@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/reserved-words/-/reserved-words-0.1.2.tgz#00a0940f98cd501aeaaac316411d9adc52b31ab1"
+  integrity sha512-0S5SrIUJ9LfpbVl4Yzij6VipUdafHrOTzvmfazSw/jeZrZtQK303OPZW+obtkaw7jQlTQppy0UvZWm9872PbRw==
+
 resolve-cwd@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-3.0.0.tgz#0f0075f1bb2544766cf73ba6a6e2adfebcb13f2d"
@@ -4418,6 +4435,16 @@ send@0.18.0:
     on-finished "2.4.1"
     range-parser "~1.2.1"
     statuses "2.0.1"
+
+sequelize-auto@^0.8.8:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/sequelize-auto/-/sequelize-auto-0.8.8.tgz#7f9d9a69b14b4081af81607119786e09e42f5e6d"
+  integrity sha512-9o0qi2yMA86oFqcA5Nh14PnQSHP0E9WPEB4hP/NgxqdFE44Nq2u8Di5O3xmvWwXMIV6W+Q0YI/2VTLvlMJAjnQ==
+  dependencies:
+    lodash "^4.17.21"
+    mkdirp "^1.0.4"
+    reserved-words "^0.1.2"
+    yargs "^16.2.0"
 
 sequelize-cli@6.5.2:
   version "6.5.2"
@@ -4966,6 +4993,11 @@ umzug@^2.3.0:
   integrity sha512-Z274K+e8goZK8QJxmbRPhl89HPO1K+ORFtm6rySPhFKfKc5GHhqdzD0SGhSWHkzoXasqJuItdhorSvY7/Cgflw==
   dependencies:
     bluebird "^3.7.2"
+
+underscore@^1.13.1:
+  version "1.13.6"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.13.6.tgz#04786a1f589dc6c09f761fc5f45b89e935136441"
+  integrity sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==
 
 universalify@^2.0.0:
   version "2.0.0"

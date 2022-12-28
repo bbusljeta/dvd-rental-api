@@ -5,20 +5,27 @@ import {
   ForeignKey,
   DataType,
   UpdatedAt,
+  PrimaryKey,
+  AutoIncrement,
 } from 'sequelize-typescript';
-import { Category } from 'src/category/category.entity';
 import tableNames from 'src/db-context/tableNames';
 import { Film } from 'src/film/film.entity';
+import { Store } from 'src/store/store.entity';
 
-@Table({ tableName: tableNames.filmCategory })
-export class FilmCategory extends Model {
+@Table({ tableName: tableNames.inventory })
+export class Inventory extends Model {
+  @Column
+  @PrimaryKey
+  @AutoIncrement
+  inventory_id: number;
+
   @ForeignKey(() => Film)
   @Column(DataType.INTEGER)
   film_id: number;
 
-  @ForeignKey(() => Category)
+  @ForeignKey(() => Store)
   @Column(DataType.INTEGER)
-  category_id: number;
+  store_id: number;
 
   @Column
   @UpdatedAt

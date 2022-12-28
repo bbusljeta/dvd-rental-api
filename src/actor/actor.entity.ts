@@ -1,4 +1,3 @@
-import { DataTypes } from 'sequelize';
 import {
   Table,
   Column,
@@ -7,6 +6,7 @@ import {
   AutoIncrement,
   UpdatedAt,
   BelongsToMany,
+  DataType,
 } from 'sequelize-typescript';
 import tableNames from 'src/db-context/tableNames';
 import { FilmActor } from 'src/film-actor/film-actor.entity';
@@ -22,10 +22,10 @@ export class Actor extends Model {
   @BelongsToMany(() => Film, () => FilmActor)
   movies: Film[];
 
-  @Column(DataTypes.CHAR(45))
+  @Column(DataType.CHAR(45))
   first_name: string;
 
-  @Column(DataTypes.CHAR(45))
+  @Column(DataType.CHAR(45))
   last_name: string;
 
   @Column
