@@ -6,7 +6,9 @@ import {
   PrimaryKey,
   AutoIncrement,
   UpdatedAt,
+  ForeignKey,
 } from 'sequelize-typescript';
+import { City } from 'src/city/city.entity';
 import tableNames from 'src/db-context/tableNames';
 
 @Table({ tableName: tableNames.address })
@@ -25,6 +27,7 @@ export class Address extends Model {
   @Column(DataTypes.CHAR(20))
   district: string;
 
+  @ForeignKey(() => City)
   @Column(DataTypes.INTEGER)
   city_id: number;
 

@@ -7,7 +7,9 @@ import {
   AutoIncrement,
   UpdatedAt,
   CreatedAt,
+  ForeignKey,
 } from 'sequelize-typescript';
+import { Address } from 'src/address/address.entity';
 import tableNames from 'src/db-context/tableNames';
 
 @Table({ tableName: tableNames.customer })
@@ -26,6 +28,7 @@ export class Customer extends Model {
   @Column(DataTypes.CHAR(45))
   email: string;
 
+  @ForeignKey(() => Address)
   @Column(DataTypes.INTEGER)
   address_id: number;
 

@@ -14,7 +14,7 @@ export class Country extends Model {
   @Column
   @PrimaryKey
   @AutoIncrement
-  customer_id: number;
+  country_id: number;
 
   @Column(DataTypes.CHAR(50))
   country: string;

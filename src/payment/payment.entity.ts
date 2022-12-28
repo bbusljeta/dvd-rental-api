@@ -7,6 +7,7 @@ import {
   PrimaryKey,
   AutoIncrement,
   HasOne,
+  ForeignKey,
 } from 'sequelize-typescript';
 import { Customer } from 'src/customer/customer.entity';
 import tableNames from 'src/db-context/tableNames';
@@ -20,11 +21,23 @@ export class Payment extends Model {
   @AutoIncrement
   payment_id: number;
 
+  @ForeignKey(() => Customer)
+  @Column(DataType.INTEGER)
+  customer_id: number;
+
   @HasOne(() => Customer)
   customer: Customer;
 
+  @ForeignKey(() => Staff)
+  @Column(DataType.INTEGER)
+  staff_id: Staff;
+
   @HasOne(() => Staff)
   staff: Staff;
+
+  @ForeignKey(() => Rental)
+  @Column(DataType.INTEGER)
+  rental_id: Staff;
 
   @HasOne(() => Rental)
   rental: Rental;

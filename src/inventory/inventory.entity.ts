@@ -7,6 +7,8 @@ import {
   UpdatedAt,
   PrimaryKey,
   AutoIncrement,
+  HasOne,
+  BelongsTo,
 } from 'sequelize-typescript';
 import tableNames from 'src/db-context/tableNames';
 import { Film } from 'src/film/film.entity';
@@ -23,9 +25,15 @@ export class Inventory extends Model {
   @Column(DataType.INTEGER)
   film_id: number;
 
+  @HasOne(() => Film)
+  film: Film;
+
   @ForeignKey(() => Store)
   @Column(DataType.INTEGER)
   store_id: number;
+
+  @BelongsTo(() => Store)
+  store: Store;
 
   @Column
   @UpdatedAt
