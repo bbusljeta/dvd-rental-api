@@ -21,12 +21,12 @@ module.exports = {
       },
       first_name: {
         field: "first_name",
-        type: Sequelize.CHAR(45),
+        type: Sequelize.STRING(45),
         allowNull: false
       },
       last_name: {
         field: "last_name",
-        type: Sequelize.CHAR(45),
+        type: Sequelize.STRING(45),
         allowNull: false
       },
       address_id: {
@@ -53,17 +53,17 @@ module.exports = {
       },
       username: {
         field: "username",
-        type: Sequelize.CHAR(16),
+        type: Sequelize.STRING(16),
         allowNull: false
       },
       password: {
         field: "password",
-        type: Sequelize.CHAR(40),
+        type: Sequelize.STRING(40),
         allowNull: false
       },
       email: {
         field: "email",
-        type: Sequelize.CHAR(50),
+        type: Sequelize.STRING(50),
       },
       picture: {
         field: 'picture',

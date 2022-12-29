@@ -21,10 +21,10 @@ export class Staff extends Model {
   @Column
   staff_id: number;
 
-  @Column(DataType.CHAR(45))
+  @Column(DataType.STRING(45))
   first_name: string;
 
-  @Column(DataType.CHAR(45))
+  @Column(DataType.STRING(45))
   last_name: string;
 
   @ForeignKey(() => Address)
@@ -44,13 +44,13 @@ export class Staff extends Model {
   @BelongsTo(() => Store)
   store: Store;
 
-  @Column(DataType.CHAR(16))
+  @Column(DataType.STRING(16))
   username: string;
 
-  @Column(DataType.CHAR(40))
+  @Column(DataType.STRING(40))
   password: string;
 
-  @Column(DataType.CHAR(50))
+  @Column(DataType.STRING(50))
   emai: string;
 
   @Column(DataType.BLOB)

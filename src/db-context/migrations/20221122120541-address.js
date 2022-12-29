@@ -15,23 +15,23 @@ module.exports = {
       },
       address: {
         field: "address",
-        type: Sequelize.CHAR(50),
+        type: Sequelize.STRING(50),
       },
       address2: {
         field: "address2",
-        type: Sequelize.CHAR(50),
+        type: Sequelize.STRING(50),
       },
       district: {
         field: "district",
-        type: Sequelize.CHAR(20)
+        type: Sequelize.STRING(20)
       },
       postal_code: {
         field: "postal_code",
-        type: Sequelize.CHAR(10)
+        type: Sequelize.STRING(10)
       },
       phone: {
         field: "phone",
-        type: Sequelize.CHAR(20)
+        type: Sequelize.STRING(20)
       },
       city_id: {
         field: "city_id",

@@ -22,7 +22,7 @@ export class Category extends Model {
   @BelongsToMany(() => Film, () => FilmCategory)
   movies: Film[];
 
-  @Column(DataTypes.CHAR(25))
+  @Column(DataTypes.STRING(25))
   name: string;
 
   @Column

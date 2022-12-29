@@ -14,7 +14,7 @@ module.exports = {
       },
       country: {
         field: "country",
-        type: Sequelize.CHAR(50),
+        type: Sequelize.STRING(50),
         allowNull: false,
       },
       last_update: {

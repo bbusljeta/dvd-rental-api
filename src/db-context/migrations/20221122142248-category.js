@@ -16,7 +16,7 @@ module.exports = {
       },
       name: {
         field: "name",
-        type: Sequelize.CHAR(25),
+        type: Sequelize.STRING(25),
         allowNull: false
       },
       last_update: {

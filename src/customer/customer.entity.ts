@@ -19,13 +19,13 @@ export class Customer extends Model {
   @Column
   customer_id: number;
 
-  @Column(DataTypes.CHAR(45))
+  @Column(DataTypes.STRING(45))
   first_name: string;
 
-  @Column(DataTypes.CHAR(45))
+  @Column(DataTypes.STRING(45))
   last_name: string;
 
-  @Column(DataTypes.CHAR(45))
+  @Column(DataTypes.STRING(45))
   email: string;
 
   @ForeignKey(() => Address)

@@ -16,7 +16,7 @@ export class Country extends Model {
   @Column
   country_id: number;
 
-  @Column(DataTypes.CHAR(50))
+  @Column(DataTypes.STRING(50))
   country: string;
 
   @Column

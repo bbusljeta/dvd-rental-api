@@ -27,10 +27,10 @@ export class Actor extends Model {
   @BelongsToMany(() => Film, () => FilmActor)
   movies: Film[];
 
-  @Column(DataType.CHAR(45))
+  @Column(DataType.STRING(45))
   first_name: string;
 
-  @Column(DataType.CHAR(45))
+  @Column(DataType.STRING(45))
   last_name: string;
 
   @Column

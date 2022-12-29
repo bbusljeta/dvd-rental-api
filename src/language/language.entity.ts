@@ -16,7 +16,7 @@ export class Language extends Model {
   @Column
   language_id: number;
 
-  @Column(DataType.CHAR(20))
+  @Column(DataType.STRING(20))
   name: string;
 
   @Column

@@ -15,7 +15,7 @@ module.exports = {
       },
       city: {
         field: "city",
-        type: Sequelize.CHAR(50),
+        type: Sequelize.STRING(50),
         allowNull: false
       },
       country_id: {

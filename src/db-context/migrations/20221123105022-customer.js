@@ -15,17 +15,17 @@ module.exports = {
       },
       first_name: {
         field: "first_name",
-        type: Sequelize.CHAR(45),
+        type: Sequelize.STRING(45),
         allowNull: false
       },
       last_name: {
         field: "last_name",
-        type: Sequelize.CHAR(45),
+        type: Sequelize.STRING(45),
         allowNull: false
       },
       email: {
         field: "email",
-        type: Sequelize.CHAR(45),
+        type: Sequelize.STRING(45),
         allowNull: false
       },
       address_id: {

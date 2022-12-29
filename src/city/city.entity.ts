@@ -18,7 +18,7 @@ export class City extends Model {
   @Column
   city_id: number;
 
-  @Column(DataTypes.CHAR(50))
+  @Column(DataTypes.STRING(50))
   city: string;
 
   @ForeignKey(() => Country)

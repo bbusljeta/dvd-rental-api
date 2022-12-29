@@ -18,23 +18,23 @@ export class Address extends Model {
   @Column
   address_id: number;
 
-  @Column(DataTypes.CHAR(50))
+  @Column(DataTypes.STRING(50))
   address: string;
 
-  @Column(DataTypes.CHAR(50))
+  @Column(DataTypes.STRING(50))
   address2: string;
 
-  @Column(DataTypes.CHAR(20))
+  @Column(DataTypes.STRING(20))
   district: string;
 
   @ForeignKey(() => City)
   @Column(DataTypes.INTEGER)
   city_id: number;
 
-  @Column(DataTypes.CHAR(10))
+  @Column(DataTypes.STRING(10))
   postal_code: string;
 
-  @Column(DataTypes.CHAR(20))
+  @Column(DataTypes.STRING(20))
   phone: string;
 
   @Column

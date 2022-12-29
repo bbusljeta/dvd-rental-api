@@ -31,7 +31,7 @@ export class Film extends Model {
   @BelongsToMany(() => Actor, () => FilmActor)
   actors: Actor[];
 
-  @Column(DataTypes.CHAR(255))
+  @Column(DataTypes.STRING(255))
   title: string;
 
   @Column(DataTypes.TEXT)
