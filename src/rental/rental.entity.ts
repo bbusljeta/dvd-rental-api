@@ -15,11 +15,11 @@ import tableNames from 'src/db-context/tableNames';
 import { Inventory } from 'src/inventory/inventory.entity';
 import { Staff } from 'src/staff/staff.entity';
 
-@Table({ tableName: tableNames.rental })
+@Table({ tableName: tableNames?.rental })
 export class Rental extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   rental_id: number;
 
   @Column(DataType.DATE)
@@ -39,15 +39,15 @@ export class Rental extends Model {
   @Column(DataType.INTEGER)
   customer_id: number;
 
-  @HasOne(() => Customer)
-  customer: Customer;
+  /*  @HasOne(() => Customer)
+  customer: Customer; */
 
   @ForeignKey(() => Staff)
   @Column(DataType.INTEGER)
   staff_id: number;
 
-  @HasOne(() => Staff)
-  staff: Staff;
+  /*  @HasOne(() => Staff)
+  staff: Staff; */
 
   @Column
   @UpdatedAt

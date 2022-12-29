@@ -9,11 +9,11 @@ import {
 } from 'sequelize-typescript';
 import tableNames from 'src/db-context/tableNames';
 
-@Table({ tableName: tableNames.language })
+@Table({ tableName: tableNames?.language })
 export class Language extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   language_id: number;
 
   @Column(DataType.CHAR(20))

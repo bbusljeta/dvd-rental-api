@@ -14,33 +14,33 @@ import tableNames from 'src/db-context/tableNames';
 import { Rental } from 'src/rental/rental.entity';
 import { Staff } from 'src/staff/staff.entity';
 
-@Table({ tableName: tableNames.payment })
+@Table({ tableName: tableNames?.payment })
 export class Payment extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   payment_id: number;
 
   @ForeignKey(() => Customer)
   @Column(DataType.INTEGER)
   customer_id: number;
 
-  @HasOne(() => Customer)
-  customer: Customer;
+  /*   @HasOne(() => Customer)
+  customer: Customer; */
 
   @ForeignKey(() => Staff)
   @Column(DataType.INTEGER)
   staff_id: Staff;
 
-  @HasOne(() => Staff)
-  staff: Staff;
+  /*  @HasOne(() => Staff)
+  staff: Staff; */
 
   @ForeignKey(() => Rental)
   @Column(DataType.INTEGER)
   rental_id: Staff;
 
-  @HasOne(() => Rental)
-  rental: Rental;
+  /*   @HasOne(() => Rental)
+  rental: Rental; */
 
   @Column
   @UpdatedAt

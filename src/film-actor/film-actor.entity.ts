@@ -10,7 +10,7 @@ import { Actor } from 'src/actor/actor.entity';
 import tableNames from 'src/db-context/tableNames';
 import { Film } from 'src/film/film.entity';
 
-@Table({ tableName: tableNames.filmActor })
+@Table({ tableName: tableNames?.filmActor })
 export class FilmActor extends Model {
   @ForeignKey(() => Film)
   @Column(DataType.INTEGER)

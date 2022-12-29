@@ -12,11 +12,16 @@ import tableNames from 'src/db-context/tableNames';
 import { FilmActor } from 'src/film-actor/film-actor.entity';
 import { Film } from 'src/film/film.entity';
 
-@Table({ tableName: tableNames.actor })
+@Table({
+  tableName: 'actor',
+  freezeTableName: true,
+  underscored: true,
+  createdAt: false,
+})
 export class Actor extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   actor_id: number;
 
   @BelongsToMany(() => Film, () => FilmActor)

@@ -12,11 +12,11 @@ import {
 import { Address } from 'src/address/address.entity';
 import tableNames from 'src/db-context/tableNames';
 
-@Table({ tableName: tableNames.customer })
+@Table({ tableName: tableNames?.customer })
 export class Customer extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   customer_id: number;
 
   @Column(DataTypes.CHAR(45))

@@ -14,19 +14,19 @@ import tableNames from 'src/db-context/tableNames';
 import { Film } from 'src/film/film.entity';
 import { Store } from 'src/store/store.entity';
 
-@Table({ tableName: tableNames.inventory })
+@Table({ tableName: tableNames?.inventory })
 export class Inventory extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   inventory_id: number;
 
   @ForeignKey(() => Film)
   @Column(DataType.INTEGER)
   film_id: number;
 
-  @HasOne(() => Film)
-  film: Film;
+  /* @HasOne(() => Film)
+  film: Film; */
 
   @ForeignKey(() => Store)
   @Column(DataType.INTEGER)

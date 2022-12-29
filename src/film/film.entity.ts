@@ -18,11 +18,11 @@ import { FilmActor } from 'src/film-actor/film-actor.entity';
 import { FilmCategory } from 'src/film-category/film-category.entity';
 import { Language } from 'src/language/language.entity';
 
-@Table({ tableName: tableNames.film })
+@Table({ tableName: tableNames?.film })
 export class Film extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   film_id: number;
 
   @BelongsToMany(() => Category, () => FilmCategory)
@@ -37,12 +37,12 @@ export class Film extends Model {
   @Column(DataTypes.TEXT)
   description: string;
 
-  @Column(DataTypes.SMALLINT({ unsigned: true }))
   @Length({
     max: 2155,
     min: 1901,
     msg: 'Year cannot be lower than 1901 or greater than 2155',
   })
+  @Column(DataTypes.SMALLINT({ unsigned: true }))
   release_year: number;
 
   @ForeignKey(() => Language)

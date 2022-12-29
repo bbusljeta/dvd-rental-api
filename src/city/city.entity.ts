@@ -11,11 +11,11 @@ import {
 import { Country } from 'src/country/country.entity';
 import tableNames from 'src/db-context/tableNames';
 
-@Table({ tableName: tableNames.city })
+@Table({ tableName: tableNames?.city })
 export class City extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   city_id: number;
 
   @Column(DataTypes.CHAR(50))

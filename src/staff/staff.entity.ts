@@ -14,11 +14,11 @@ import { Address } from 'src/address/address.entity';
 import tableNames from 'src/db-context/tableNames';
 import { Store } from 'src/store/store.entity';
 
-@Table({ tableName: tableNames.staff })
+@Table({ tableName: tableNames?.staff })
 export class Staff extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   staff_id: number;
 
   @Column(DataType.CHAR(45))
@@ -31,8 +31,8 @@ export class Staff extends Model {
   @Column(DataType.INTEGER)
   address_id: number;
 
-  @HasOne(() => Address)
-  address: Address;
+  /* @HasOne(() => Address)
+  address: Address; */
 
   @Column(DataType.BOOLEAN)
   active: boolean;

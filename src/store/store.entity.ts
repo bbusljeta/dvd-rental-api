@@ -13,11 +13,11 @@ import { Address } from 'src/address/address.entity';
 import tableNames from 'src/db-context/tableNames';
 import { Staff } from 'src/staff/staff.entity';
 
-@Table({ tableName: tableNames.store })
+@Table({ tableName: tableNames?.store })
 export class Store extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   store_id: number;
 
   @ForeignKey(() => Staff)
@@ -31,8 +31,8 @@ export class Store extends Model {
   @Column(DataType.INTEGER)
   address_id: number;
 
-  @HasOne(() => Address)
-  address: Address;
+  /* @HasOne(() => Address)
+  address: Address; */
 
   @Column
   @UpdatedAt

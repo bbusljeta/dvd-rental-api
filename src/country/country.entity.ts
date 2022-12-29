@@ -9,11 +9,11 @@ import {
 } from 'sequelize-typescript';
 import tableNames from 'src/db-context/tableNames';
 
-@Table({ tableName: tableNames.country })
+@Table({ tableName: tableNames?.country })
 export class Country extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   country_id: number;
 
   @Column(DataTypes.CHAR(50))

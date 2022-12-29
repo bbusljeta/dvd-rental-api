@@ -19,6 +19,21 @@ import { RentalModule } from './rental/rental.module';
 import { PaymentModule } from './payment/payment.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { DbContextEnv } from './db-context/interfaces/db-context.env';
+import { Actor } from './actor/actor.entity';
+import { Category } from './category/category.entity';
+import { Film } from './film/film.entity';
+import { Language } from './language/language.entity';
+import { FilmCategory } from './film-category/film-category.entity';
+import { FilmActor } from './film-actor/film-actor.entity';
+import { Customer } from './customer/customer.entity';
+import { Address } from './address/address.entity';
+import { City } from './city/city.entity';
+import { Country } from './country/country.entity';
+import { Staff } from './staff/staff.entity';
+import { Store } from './store/store.entity';
+import { Inventory } from './inventory/inventory.entity';
+import { Rental } from './rental/rental.entity';
+import { Payment } from './payment/payment.entity';
 
 @Module({
   imports: [
@@ -29,11 +44,28 @@ import { DbContextEnv } from './db-context/interfaces/db-context.env';
       useFactory: async (configService: ConfigService<DbContextEnv>) => {
         return {
           dialect: 'postgres',
-          host: configService.get('DATABASE_HOST'),
-          port: configService.get('POSTGRES_PORT'),
-          username: configService.get('POSTGRES_USER'),
-          password: configService.get('POSTGRES_PASSWORD'),
-          database: configService.get('POSTGRES_DB'),
+          host: configService?.get('DATABASE_HOST') ?? '127.0.0.1',
+          port: configService?.get('POSTGRES_PORT'),
+          username: configService?.get('POSTGRES_USER') ?? 'postgres',
+          password: configService?.get('POSTGRES_PASSWORD') ?? 'dev',
+          database: configService?.get('POSTGRES_DB') ?? 'dvdrental',
+          models: [
+            Actor,
+            Category,
+            Film,
+            Language,
+            FilmCategory,
+            FilmActor,
+            Customer,
+            Address,
+            City,
+            Country,
+            Staff,
+            Store,
+            Inventory,
+            Rental,
+            Payment,
+          ],
         };
       },
     }),

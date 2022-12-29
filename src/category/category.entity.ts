@@ -12,11 +12,11 @@ import tableNames from 'src/db-context/tableNames';
 import { FilmCategory } from 'src/film-category/film-category.entity';
 import { Film } from 'src/film/film.entity';
 
-@Table({ tableName: tableNames.category })
+@Table({ tableName: tableNames?.category })
 export class Category extends Model {
-  @Column
   @PrimaryKey
   @AutoIncrement
+  @Column
   category_id: number;
 
   @BelongsToMany(() => Film, () => FilmCategory)
