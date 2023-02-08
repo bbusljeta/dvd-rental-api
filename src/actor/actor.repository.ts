@@ -9,8 +9,15 @@ export class ActorRepository {
     private actor: typeof Actor,
   ) {}
 
-  async findAll() {
+  async getAllActors() {
     return this.actor.findAll();
+  }
+
+  async getActors(offset: number, limit: number) {
+    return this.actor.findAndCountAll({
+      limit,
+      offset,
+    });
   }
 
   async findById(id: string) {

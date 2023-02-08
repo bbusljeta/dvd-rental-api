@@ -34,6 +34,7 @@ import { Store } from './store/store.entity';
 import { Inventory } from './inventory/inventory.entity';
 import { Rental } from './rental/rental.entity';
 import { Payment } from './payment/payment.entity';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -84,6 +85,7 @@ import { Payment } from './payment/payment.entity';
     InventoryModule,
     RentalModule,
     PaymentModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [AppService],

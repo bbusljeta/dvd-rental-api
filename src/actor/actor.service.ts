@@ -5,7 +5,15 @@ import { ActorRepository } from './actor.repository';
 export class ActorService {
   constructor(private actorRepository: ActorRepository) {}
 
-  async findAll() {
-    return this.actorRepository.findAll();
+  async getActors(offset: number, limit: number) {
+    return this.actorRepository.getActors(offset, limit);
+  }
+
+  async findById(id: string) {
+    return this.actorRepository.findById(id);
+  }
+
+  async findByFirstName(name: string) {
+    return this.actorRepository.findByFirstName(name);
   }
 }

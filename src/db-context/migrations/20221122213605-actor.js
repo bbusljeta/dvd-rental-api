@@ -4,7 +4,7 @@ const tableNames = require("../tableNames");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("actor", {
+    await queryInterface.createTable(tableNames?.actor, {
       actor_id: {
         field: "actor_id",
         type: Sequelize.INTEGER,
