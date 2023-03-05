@@ -25,7 +25,7 @@ export class Actor extends Model {
   actor_id: number;
 
   @BelongsToMany(() => Film, () => FilmActor)
-  movies: Film[];
+  movies: Array<Film & { filmActor: FilmActor }>;
 
   @Column(DataType.STRING(45))
   first_name: string;

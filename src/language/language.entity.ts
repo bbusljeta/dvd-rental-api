@@ -7,9 +7,13 @@ import {
   UpdatedAt,
   DataType,
 } from 'sequelize-typescript';
-import tableNames from 'src/db-context/tableNames';
 
-@Table({ tableName: tableNames?.language })
+@Table({
+  tableName: 'language',
+  freezeTableName: true,
+  underscored: true,
+  createdAt: false,
+})
 export class Language extends Model {
   @PrimaryKey
   @AutoIncrement

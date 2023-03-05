@@ -8,12 +8,12 @@ import {
   Req,
 } from '@nestjs/common';
 import { Request } from 'express';
-import { PaginatedResponse } from 'src/common/paginated-response/paginated-response';
+import { PaginatedResponseDTO } from 'src/common/paginated-response/paginated-response';
 import { PaginationParams } from 'src/common/pagination-params/pagination-params';
 import { Actor } from './actor.entity';
 import { ActorService } from './actor.service';
 
-@Controller('actor')
+@Controller('actors')
 export class ActorController {
   constructor(private actorService: ActorService) {}
 
@@ -23,11 +23,16 @@ export class ActorController {
     const { limit, offset, page } = query;
     const { rows, count } = await this.actorService.getActors(offset, limit);
 
-    return new PaginatedResponse<Actor[]>(rows, page, limit, count, req);
+    return new PaginatedResponseDTO<Actor[]>(rows, page, limit, count, req);
   }
 
   @Get(':id')
   async findById(@Param('id') id: string) {
     return this.actorService.findById(id);
+  }
+
+  @Get(':id/films')
+  async getActorFilms(@Param('id') id: string) {
+    return this.actorService.getActorFilms(Number(id));
   }
 }

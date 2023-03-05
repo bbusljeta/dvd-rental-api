@@ -10,6 +10,8 @@ import {
   ForeignKey,
   BelongsToMany,
   HasMany,
+  HasOne,
+  BelongsTo,
 } from 'sequelize-typescript';
 import { Actor } from 'src/actor/actor.entity';
 import { Category } from 'src/category/category.entity';
@@ -18,7 +20,12 @@ import { FilmActor } from 'src/film-actor/film-actor.entity';
 import { FilmCategory } from 'src/film-category/film-category.entity';
 import { Language } from 'src/language/language.entity';
 
-@Table({ tableName: tableNames?.film })
+@Table({
+  tableName: 'film',
+  freezeTableName: true,
+  underscored: true,
+  createdAt: false,
+})
 export class Film extends Model {
   @PrimaryKey
   @AutoIncrement
@@ -48,6 +55,9 @@ export class Film extends Model {
   @ForeignKey(() => Language)
   @Column
   language_id: number;
+
+  @BelongsTo(() => Language)
+  language: Language;
 
   @Column(DataTypes.SMALLINT({ unsigned: true }))
   rental_duration: number;

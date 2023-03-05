@@ -1,7 +1,7 @@
-import { PaginatedResponse } from './paginated-response';
+import { PaginatedResponseDTO } from './paginated-response';
 
 describe('PaginationResponse', () => {
   it('should be defined', () => {
-    expect(new PaginatedResponse()).toBeDefined();
+    expect(new PaginatedResponseDTO()).toBeDefined();
   });
 });

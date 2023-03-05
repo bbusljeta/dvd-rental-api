@@ -1,6 +1,6 @@
 import { Request } from 'express';
 
-export class PaginatedResponse<T> {
+export class PaginatedResponseDTO<T> {
   data: T;
   totalRecords: number;
   totalPages: number;
