@@ -9,13 +9,10 @@ import {
   Length,
   ForeignKey,
   BelongsToMany,
-  HasMany,
-  HasOne,
   BelongsTo,
 } from 'sequelize-typescript';
 import { Actor } from 'src/actor/actor.entity';
 import { Category } from 'src/category/category.entity';
-import tableNames from 'src/db-context/tableNames';
 import { FilmActor } from 'src/film-actor/film-actor.entity';
 import { FilmCategory } from 'src/film-category/film-category.entity';
 import { Language } from 'src/language/language.entity';
