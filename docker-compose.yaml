@@ -1,5 +1,5 @@
 version: '3.9'
-name: dvd-rental.dev
+name: dvd_rental_dev
 services:
   database:
     container_name: dvd-rental.dev.database

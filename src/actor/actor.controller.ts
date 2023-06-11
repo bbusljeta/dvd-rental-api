@@ -10,7 +10,7 @@ import {
 import { Request } from 'express';
 import { PaginatedResponseDTO } from 'src/common/paginated-response/paginated-response';
 import { PaginationParams } from 'src/common/pagination-params/pagination-params';
-import { Actor } from './actor.entity';
+import { Actor } from './entities/actor.entity';
 import { ActorService } from './actor.service';
 
 @Controller('actors')

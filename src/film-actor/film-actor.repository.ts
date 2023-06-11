@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Film } from 'src/film/film.entity';
-import { Language } from 'src/language/language.entity';
-import { FilmActor } from './film-actor.entity';
+import { Film } from 'src/film/entities/film.entity';
+import { Language } from 'src/language/entities/language.entity';
+
+import { FilmActor } from './entities/film-actor.entity';
 
 @Injectable()
 export class FilmActorRepository {

@@ -1,30 +1,37 @@
+import { Mapper } from '@automapper/core';
+import { InjectMapper } from '@automapper/nestjs';
 import { Injectable } from '@nestjs/common';
-import { FilmActorMapperService } from 'src/film-actor/film-actor-mapper.service';
 import { FilmActorRepository } from 'src/film-actor/film-actor.repository';
+import { Actor } from './entities/actor.entity';
 import { ActorRepository } from './actor.repository';
+import { ActorDto } from './dto/actor.dto';
 
 @Injectable()
 export class ActorService {
   constructor(
     private actorRepository: ActorRepository,
     private filmActorRepository: FilmActorRepository,
-    private filmActorMapperService: FilmActorMapperService,
+    @InjectMapper() private mapper: Mapper,
   ) {}
 
   getActors(offset: number, limit: number) {
     return this.actorRepository.getActors(offset, limit);
   }
 
-  findById(id: string) {
-    return this.actorRepository.findById(id);
+  async findById(id: string) {
+    const actor = await this.actorRepository.findById(id);
+    return this.mapper.map(actor, Actor, ActorDto);
   }
+
+  /*  findById(id: string) {
+    return this.actorRepository.findById(id);
+  } */
 
   findByFirstName(name: string) {
     return this.actorRepository.findByFirstName(name);
   }
 
-  async getActorFilms(actorId: number) {
-    const data = await this.filmActorRepository.getActorFilms(actorId);
-    return this.filmActorMapperService.toDTO(data);
+  getActorFilms(actorId: number) {
+    return this.filmActorRepository.getActorFilms(actorId);
   }
 }
