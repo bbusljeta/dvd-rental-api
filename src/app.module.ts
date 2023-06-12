@@ -44,14 +44,15 @@ import { Payment } from './payment/entities/payment.entity';
       isGlobal: true,
     }),
     SequelizeModule.forRootAsync({
-      useFactory: async (configService: ConfigService<DbContextEnv>) => {
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService<DbContextEnv>) => {
         return {
           dialect: 'postgres',
-          host: configService?.get('DATABASE_HOST') ?? '127.0.0.1',
-          port: configService?.get('POSTGRES_PORT'),
-          username: configService?.get('POSTGRES_USER') ?? 'postgres',
-          password: configService?.get('POSTGRES_PASSWORD') ?? 'dev',
-          database: configService?.get('POSTGRES_DB') ?? 'dvdrental',
+          host: configService?.get('DB_HOST'),
+          port: configService?.get('DB_PORT'),
+          username: configService?.get('DB_USER'),
+          password: configService?.get('DB_PASSWORD'),
+          database: configService?.get('DB_NAME'),
           models: [
             Actor,
             Category,

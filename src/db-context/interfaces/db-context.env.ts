@@ -1,7 +1,7 @@
 export interface DbContextEnv {
-  DATABASE_HOST: string;
-  POSTGRES_USER: string;
-  POSTGRES_PASSWORD: string;
-  POSTGRES_DB: string;
-  POSTGRES_PORT: string;
+  DB_HOST: string;
+  DB_USER: string;
+  DB_PASSWORD: string;
+  DB_NAME: string;
+  DB_PORT: string;
 }
