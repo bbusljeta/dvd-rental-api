@@ -1,7 +1,6 @@
 import { Mapper } from '@automapper/core';
 import { InjectMapper } from '@automapper/nestjs';
 import { Injectable } from '@nestjs/common';
-import { FilmActorRepository } from 'src/film-actor/film-actor.repository';
 import { Actor } from './entities/actor.entity';
 import { ActorRepository } from './actor.repository';
 import { ActorDto } from './dto/actor.dto';
@@ -10,7 +9,6 @@ import { ActorDto } from './dto/actor.dto';
 export class ActorService {
   constructor(
     private actorRepository: ActorRepository,
-    private filmActorRepository: FilmActorRepository,
     @InjectMapper() private mapper: Mapper,
   ) {}
 
@@ -32,6 +30,6 @@ export class ActorService {
   }
 
   getActorFilms(actorId: number) {
-    return this.filmActorRepository.getActorFilms(actorId);
+    return this.actorRepository.getMoviesForActor(actorId);
   }
 }

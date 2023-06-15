@@ -3,22 +3,31 @@ import {
   Column,
   Model,
   ForeignKey,
-  DataType,
   UpdatedAt,
+  BelongsTo,
 } from 'sequelize-typescript';
 import { Category } from 'src/category/entities/category.entity';
-import tableNames from 'src/db-context/tableNames';
 import { Film } from 'src/film/entities/film.entity';
 
-@Table({ tableName: tableNames?.filmCategory })
+@Table({
+  tableName: 'film_category',
+  createdAt: false,
+  underscored: true,
+})
 export class FilmCategory extends Model {
   @ForeignKey(() => Film)
-  @Column(DataType.INTEGER)
+  @Column
   film_id: number;
 
+  @BelongsTo(() => Film)
+  film: Film;
+
   @ForeignKey(() => Category)
-  @Column(DataType.INTEGER)
+  @Column
   category_id: number;
+
+  @BelongsTo(() => Category)
+  category: Category;
 
   @Column
   @UpdatedAt

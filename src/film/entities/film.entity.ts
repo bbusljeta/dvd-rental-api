@@ -76,7 +76,7 @@ export class Film extends Model {
   last_update: Date;
 
   @Column(DataTypes.TEXT)
-  special_features: string;
+  special_features: string[];
 
   @Column(DataTypes.TSVECTOR)
   fulltext: string;

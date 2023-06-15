@@ -9,6 +9,7 @@ module.exports = {
         field: "film_id",
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
         references: {
           key: 'film_id',
           model: {
@@ -20,6 +21,7 @@ module.exports = {
         field: "category_id",
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
         references: {
           key: 'category_id',
           model: {
@@ -33,13 +35,9 @@ module.exports = {
         defaultValue: Sequelize.NOW,
         allowNull: false
       },
-    }, {
-      uniqueKeys: {
-        film_category: {
-          fields: ["category_id", "film_id"],
-        }
-      }
-    })
+    });
+
+    await queryInterface.addIndex(tableNames.filmCategory, ["film_id"]);
   },
 
   async down(queryInterface, Sequelize) {
