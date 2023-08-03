@@ -16,6 +16,13 @@ export class ActorRepository {
     return this.actor.findAll();
   }
 
+  create(actor: Actor) {
+    return this.actor.create({
+      first_name: actor.first_name,
+      last_name: actor.last_name,
+    });
+  }
+
   getActors(offset: number, limit: number) {
     return this.actor.findAndCountAll({
       limit,

@@ -4,6 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { Actor } from './entities/actor.entity';
 import { ActorRepository } from './actor.repository';
 import { ActorDto } from './dto/actor.dto';
+import { CreateActorDto } from './dto/createActor.dto';
 
 @Injectable()
 export class ActorService {
@@ -14,6 +15,10 @@ export class ActorService {
 
   getActors(offset: number, limit: number) {
     return this.actorRepository.getActors(offset, limit);
+  }
+
+  createActor(actor: CreateActorDto) {
+    return this.actorRepository.create(new Actor({ ...actor }));
   }
 
   async findById(id: string) {

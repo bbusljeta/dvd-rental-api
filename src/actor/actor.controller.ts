@@ -6,12 +6,15 @@ import {
   UsePipes,
   ValidationPipe,
   Req,
+  Post,
+  Body,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { PaginatedResponseDTO } from 'src/common/paginated-response/paginated-response';
 import { PaginationParams } from 'src/common/pagination-params/pagination-params';
 import { Actor } from './entities/actor.entity';
 import { ActorService } from './actor.service';
+import { CreateActorDto } from './dto/createActor.dto';
 
 @Controller('actors')
 export class ActorController {
@@ -27,12 +30,17 @@ export class ActorController {
   }
 
   @Get(':id')
-  async findById(@Param('id') id: string) {
+  findById(@Param('id') id: string) {
     return this.actorService.findById(id);
   }
 
   @Get(':id/films')
-  async getActorFilms(@Param('id') id: string) {
+  getActorFilms(@Param('id') id: string) {
     return this.actorService.getActorFilms(Number(id));
+  }
+
+  @Post()
+  create(@Body() actor: CreateActorDto) {
+    return this.actorService.createActor(actor);
   }
 }
