@@ -14,6 +14,7 @@ module.exports = {
     */
     const sql = fs.readFileSync(require.resolve("../../../data/category.sql"), 'utf8');
     await queryInterface.sequelize.query(sql);
+    await queryInterface.sequelize.query(`select setval('category_category_id_seq', (select max(category_id) from category), true)`);
   },
 
   async down(queryInterface, Sequelize) {

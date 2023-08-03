@@ -18,6 +18,7 @@ module.exports = {
 
     const sql = fs.readFileSync(require.resolve("../../../data/country.sql"), 'utf8');
     await queryInterface.sequelize.query(sql);
+    await queryInterface.sequelize.query(`select setval('country_country_id_seq', (select max(country_id) from country), true)`)
   },
 
   async down(queryInterface, Sequelize) {

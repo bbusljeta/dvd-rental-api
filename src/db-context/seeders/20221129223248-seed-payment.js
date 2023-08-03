@@ -14,6 +14,7 @@ module.exports = {
     */
     const sql = fs.readFileSync(require.resolve("../../../data/payment.sql"), 'utf8');
     await queryInterface.sequelize.query(sql);
+    await queryInterface.sequelize.query(`select setval('payment_payment_id_seq', (select max(payment_id) from payment), true)`);
   },
 
   async down(queryInterface, Sequelize) {

@@ -14,6 +14,8 @@ module.exports = {
     */
     const sql = fs.readFileSync(require.resolve("../../../data/language.sql"), 'utf8');
     await queryInterface.sequelize.query(sql);
+    await queryInterface.sequelize.query(`select setval('language_language_id_seq', (select max(language_id) from language), true)`);
+
   },
 
   async down(queryInterface, Sequelize) {

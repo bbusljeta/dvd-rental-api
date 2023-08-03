@@ -14,6 +14,7 @@ module.exports = {
     */
     const sql = fs.readFileSync(require.resolve("../../../data/inventory.sql"), 'utf8');
     await queryInterface.sequelize.query(sql);
+    await queryInterface.sequelize.query(`select setval('inventory_inventory_id_seq', (select max(inventory_id) from inventory), true)`);
   },
 
   async down(queryInterface, Sequelize) {
