@@ -64,7 +64,9 @@ export class ActorRepository {
   }
 
   findById(id: string) {
-    return this.actor.findByPk(id);
+    return this.actor.findByPk(id, {
+      include: [{ model: Film, as: 'films', through: { attributes: [] } }],
+    });
   }
 
   findByFirstName(name: string) {

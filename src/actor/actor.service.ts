@@ -1,6 +1,6 @@
 import { Mapper } from '@automapper/core';
 import { InjectMapper } from '@automapper/nestjs';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Actor } from './entities/actor.entity';
 import { ActorRepository } from './actor.repository';
 import { ActorDto } from './dto/actor.dto';
@@ -23,6 +23,10 @@ export class ActorService {
 
   async findById(id: string) {
     const actor = await this.actorRepository.findById(id);
+    if (!actor) {
+      throw new NotFoundException();
+    }
+
     return this.mapper.map(actor, Actor, ActorDto);
   }
 

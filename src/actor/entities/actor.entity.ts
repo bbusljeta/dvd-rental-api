@@ -1,3 +1,4 @@
+import { AutoMap } from '@automapper/classes';
 import {
   Table,
   Column,
@@ -18,20 +19,25 @@ import { Film } from 'src/film/entities/film.entity';
   createdAt: false,
 })
 export class Actor extends Model {
+  @AutoMap()
   @PrimaryKey
   @AutoIncrement
   @Column
   actor_id: number;
 
+  @AutoMap()
   @BelongsToMany(() => Film, () => FilmActor)
   films: Array<Film>;
 
+  @AutoMap()
   @Column(DataType.STRING(45))
   first_name: string;
 
+  @AutoMap()
   @Column(DataType.STRING(45))
   last_name: string;
 
+  @AutoMap()
   @Column
   @UpdatedAt
   last_update: Date;

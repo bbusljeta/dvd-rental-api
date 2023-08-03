@@ -1,3 +1,4 @@
+import { AutoMap } from '@automapper/classes';
 import { DataTypes } from 'sequelize';
 import {
   Table,
@@ -24,6 +25,7 @@ import { Language } from 'src/language/entities/language.entity';
   createdAt: false,
 })
 export class Film extends Model {
+  @AutoMap()
   @PrimaryKey
   @AutoIncrement
   @Column
@@ -35,12 +37,15 @@ export class Film extends Model {
   @BelongsToMany(() => Actor, () => FilmActor)
   actors: Actor[];
 
+  @AutoMap()
   @Column(DataTypes.STRING(255))
   title: string;
 
+  @AutoMap()
   @Column(DataTypes.TEXT)
   description: string;
 
+  @AutoMap()
   @Length({
     max: 2155,
     min: 1901,
@@ -56,25 +61,32 @@ export class Film extends Model {
   @BelongsTo(() => Language)
   language: Language;
 
+  @AutoMap()
   @Column(DataTypes.SMALLINT({ unsigned: true }))
   rental_duration: number;
 
+  @AutoMap()
   @Column(DataTypes.DECIMAL(4, 2))
   rental_rate: number;
 
+  @AutoMap()
   @Column(DataTypes.SMALLINT({ unsigned: true }))
   length: number;
 
+  @AutoMap()
   @Column(DataTypes.DECIMAL(5, 2))
   replacement_cost: number;
 
+  @AutoMap()
   @Column(DataTypes.ENUM('G', 'PG', 'PG-13', 'R', 'NC-17'))
   rating: string;
 
-  @Column
+  @AutoMap()
   @UpdatedAt
+  @Column
   last_update: Date;
 
+  @AutoMap()
   @Column(DataTypes.TEXT)
   special_features: string[];
 
