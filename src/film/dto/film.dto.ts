@@ -1,4 +1,5 @@
 import { AutoMap } from '@automapper/classes';
+import { ActorDto } from 'src/actor/dto/actor.dto';
 
 export class FilmDto {
   @AutoMap()
@@ -7,17 +8,28 @@ export class FilmDto {
   //categories: CategoryDto[];
 
   @AutoMap()
+  actors!: ActorDto[];
+
+  @AutoMap()
   title: string;
 
   @AutoMap()
   rating: string;
-  /*  description: string;
-  release_year: number;
+
+  @AutoMap()
+  description: string;
+
+  @AutoMap()
+  special_features: string;
+
+  @AutoMap()
+  release_year: string;
+  /*  
   language_id: number;
   language: LanguageDto;
   rental_duration: number;
   rental_rate: number;
   length: number;
   rating: string;
-  special_features: string[]; */
+ */
 }

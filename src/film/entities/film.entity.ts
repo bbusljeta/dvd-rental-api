@@ -34,6 +34,7 @@ export class Film extends Model {
   @BelongsToMany(() => Category, () => FilmCategory)
   categories: Category[];
 
+  @AutoMap()
   @BelongsToMany(() => Actor, () => FilmActor)
   actors: Actor[];
 
@@ -51,6 +52,7 @@ export class Film extends Model {
     min: 1901,
     msg: 'Year cannot be lower than 1901 or greater than 2155',
   })
+  @AutoMap()
   @Column(DataTypes.SMALLINT({ unsigned: true }))
   release_year: number;
 
